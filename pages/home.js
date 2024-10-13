@@ -7,7 +7,24 @@ export default function Home() {
   // define ui
   const UI = html`
     <main class="container flex-col">
-      <h1>Tibesigwa Dankan Portifio</h1>
+      <header>
+        <h1>Tibesigwa Dankan</h1>
+        <ul>
+          <li>Github</li>
+          <li>LinkedIn</li>
+          <li>Twitter</li>
+          <li>Email</li>
+        </ul>
+      </header>
+      <div>
+        <div>Animated messages</div>
+        <div>
+          <img src="profile" alt="profile" />
+        </div>
+      </div>
+      <div>Animated diagrams</div>
+      <div>projects</div>
+      <footer>Footer</footer>
       <!-- <p>
         Awesome count: <span id="count" style="color: green;">${count}</span>
       </p>
@@ -19,11 +36,11 @@ export default function Home() {
         <z-link to="/about">About</z-link>
         <a href="https://www.google.com">Just Google</a>
       </div> -->
-      <img
+      <!-- <img
         src="/z-banner.jpeg"
         alt="Z Banner"
         style="width: 100px; height: 100px; border-radius: 4px;"
-      />
+      /> -->
     </main>
   `;
 
