@@ -1,54 +1,64 @@
 import { html, useEffect, useState } from "z-js-framework";
-import { Button } from "../components/button";
 
 export default function Home() {
   const [count, setCount] = useState(0);
 
-  // define ui
   const UI = html`
-    <main class="container flex-col">
-      <header>
-        <h1>Tibesigwa Dankan</h1>
-        <ul>
-          <li>Github</li>
-          <li>LinkedIn</li>
-          <li>Twitter</li>
-          <li>Email</li>
+    <main class="w-full flex-col">
+      <nav
+        class="flex items-center bg-[rgba(0,0,0,0.0)] justify-between
+        gap-4 py-4 px-4 sm:px-8 lg:px-12 2xl:px-32"
+      >
+        <h1 class="font-bold text-2xl text-gray-100">Tibesigwa Dankan</h1>
+        <ul class="flex items-center justify-end gap-2">
+          <li>
+            <img
+              src="/public/icons/github.svg"
+              alt="Github Icon"
+              class="size-6 fill-gray-100"
+            />
+          </li>
+          <li>
+            <img
+              src="/public/icons/linkedin.svg"
+              alt="LinkedIn Icon"
+              class="size-6"
+            />
+          </li>
+          <li>
+            <img
+              src="/public/icons/twitter.svg"
+              alt="Twitter Icon"
+              class="size-6"
+            />
+          </li>
+          <li>
+            <img
+              src="/public/icons/gmail.svg"
+              alt="Gmail Icon"
+              class="size-6"
+            />
+          </li>
         </ul>
-      </header>
-      <div>
-        <div>Animated messages</div>
-        <div>
+      </nav>
+      <header
+        class="w-full flex items-center bg-[rgba(0,0,0,0.0)] justify-center
+         gap-32 py-4 px-4 sm:px-8 lg:px-12 2xl:px-32 h-[80vh]"
+      >
+        <div class="w-full flex items-center justify-center">
+          Animated messages
+        </div>
+        <div class="w-full flex items-center justify-center">
           <img src="profile" alt="profile" />
         </div>
+      </header>
+      <div class="w-full flex items-center justify-center">
+        Animated diagrams
       </div>
-      <div>Animated diagrams</div>
-      <div>projects</div>
-      <footer>Footer</footer>
-      <!-- <p>
-        Awesome count: <span id="count" style="color: green;">${count}</span>
-      </p>
-      ${Button({
-        text: "+ Add One",
-        onClick: () => setCount(count.current() + 1),
-      })}
-      <div class="flex-row">
-        <z-link to="/about">About</z-link>
-        <a href="https://www.google.com">Just Google</a>
-      </div> -->
-      <!-- <img
-        src="/z-banner.jpeg"
-        alt="Z Banner"
-        style="width: 100px; height: 100px; border-radius: 4px;"
-      /> -->
+      <div class="w-full flex items-center justify-center">projects</div>
+      <footer class="w-full flex items-center justify-center">Footer</footer>
     </main>
   `;
-
-  // runs everytime count updates
-  useEffect(() => {
-    const countElement = UI.querySelector("#count");
-    countElement.innerHTML = count.current();
-  }, [count]);
 
   return UI;
 }

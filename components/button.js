@@ -1,4 +1,4 @@
-import { css, html } from 'z-js-framework';
+import { css, html } from "z-js-framework";
 
 const buttonStyles = css`
   padding-inline: 1rem;
