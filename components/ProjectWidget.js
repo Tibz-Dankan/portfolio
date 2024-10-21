@@ -1,5 +1,7 @@
 import { html, useEffect, getRef } from "z-js-framework";
 import { Modal } from "./Modal";
+import { Video } from "./Video";
+import { ImageSlider } from "./ImageSlider";
 
 export const ProjectWidget = (props) => {
   const technologies = props.technologies;
@@ -29,7 +31,11 @@ export const ProjectWidget = (props) => {
         target="_blank"
         class="flex items-center justify-start gap-2"
       >
-        <img src="${props.logo}" alt="${props.name}-logo" class="w-[44px]" />
+        <img src="${props.logo}" 
+          alt="${props.name}-logo"  
+          style="width: ${props.styles.logo.width}; 
+          margin-top: ${props.styles.logo?.margin_top};" 
+        />
         <p class="text-xl">${props.name}</p>
       </a>
     </div>
@@ -52,38 +58,74 @@ export const ProjectWidget = (props) => {
         >
         ${
           props.name === "Docease"
-            ? html`<span>
-                <img
-                  src="/public/icons/expand-black.svg"
-                  alt="Expand Icon"
-                  class="size-5 cursor-pointer"
-                />
-              </span>`
-            : html`<span>
-                <img
-                  src="/public/icons/expand-white.svg"
-                  alt="Expand Icon"
-                  class="size-5 cursor-pointer"
-                />
-              </span>`
+            ? html`<div>
+                ${Modal({
+                  openModalElement: html`<span>
+                    <img
+                      src="/public/icons/expand-black.svg"
+                      alt="Expand Icon"
+                      class="size-5 cursor-pointer"
+                    />
+                  </span>`,
+                  contentElement: html`<div>
+                    ${ImageSlider({
+                      images: props.image_slide_urls,
+                      name: props.name,
+                      logo: props.logo,
+                      url: props.url,
+                      styles: props.styles,
+                    })}
+                  </div>`,
+                })}
+              </div>`
+            : html`<div>
+                ${Modal({
+                  openModalElement: html`<span>
+                    <img
+                      src="/public/icons/expand-white.svg"
+                      alt="Expand Icon"
+                      class="size-5 cursor-pointer"
+                    />
+                  </span>`,
+                  contentElement: html`<div>
+                    ${ImageSlider({
+                      images: props.image_slide_urls,
+                      name: props.name,
+                      logo: props.logo,
+                      url: props.url,
+                      styles: props.styles,
+                    })}
+                  </div>`,
+                })}
+              </div>`
         }
         <div>
           ${
             props.name === "Docease"
-              ? html`<span>
-                  <img
-                    src="/public/icons/video-black.svg"
-                    alt="Video Icon"
-                    class="size-6 cursor-pointer"
-                  />
-                </span>`
-              : html`<span>
-                  <img
-                    src="/public/icons/video-white.svg"
-                    alt="Video Icon"
-                    class="size-6 cursor-pointer stroke-gray-100"
-                  />
-                </span>`
+              ? html`<div>
+                  ${Modal({
+                    openModalElement: html`<span>
+                      <img
+                        src="/public/icons/video-black.svg"
+                        alt="Video Icon"
+                        class="size-6 cursor-pointer"
+                      />
+                    </span>`,
+                    contentElement: html`<div>${Video()}</div>`,
+                  })}
+                </div>`
+              : html`<div>
+                  ${Modal({
+                    openModalElement: html`<span>
+                      <img
+                        src="/public/icons/video-white.svg"
+                        alt="Video Icon"
+                        class="size-6 cursor-pointer stroke-gray-100"
+                      />
+                    </span>`,
+                    contentElement: html`<div>${Video()}</div>`,
+                  })}
+                </div>`
           }
         </div>
         </div>

@@ -21,6 +21,7 @@ export default function Home() {
           image_slide_urls: project.image_slide_urls,
           video_url: project.video_url,
           technologies: project.technologies,
+          styles: project.styles,
         })
       );
     });
