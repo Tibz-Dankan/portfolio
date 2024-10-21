@@ -1,4 +1,4 @@
-import { css, html, reactive, useState } from 'z-js-framework';
+import { css, html, reactive, useState } from "z-js-framework";
 
 const inputStyles = css`
   padding-inline: 1rem;
@@ -15,7 +15,7 @@ const inputStyles = css`
 `;
 
 export default function About() {
-  const [name, setName] = useState('type your name here, delete this!');
+  const [name, setName] = useState("type your name here, delete this!");
 
   const UI = () => html`
     <main class="container flex-col">
@@ -25,7 +25,8 @@ export default function About() {
         type="text"
         onChange="${(e) => setName(e.target.value)}"
         class="${inputStyles}"
-        value="${name}" />
+        value="${name}"
+      />
       <div class="flex-row">
         <z-link to="/">Home</z-link>
         <z-link to="/listing">Legends</z-link>
