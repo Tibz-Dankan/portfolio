@@ -77,7 +77,6 @@ export const ImageSlider = (props) => {
           alt="${props.name}-logo"
           class="${props.styles.logo}"
           style="width: ${props.styles.logo.width}; 
-          margin-top: ${props.styles.logo?.margin_top}; 
           margin: ${props.styles.logo?.margin};"
         />
         <p class="text-xl">${props.name}</p>
