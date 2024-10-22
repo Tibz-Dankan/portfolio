@@ -59,7 +59,8 @@
         "primary_light_color": "#7e88c3",
         "logo": {
           "width": "160px",
-          "height": "32px"
+          "height": "32px",
+          "margin": "-16px 0px"
         }
       }
     },
