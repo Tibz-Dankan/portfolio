@@ -29,12 +29,14 @@ export const ProjectWidget = (props) => {
       <a
         href="${props.url}"
         target="_blank"
-        class="flex items-center justify-start gap-2"
+        class="flex items-center justify-start gap-2 outline-none
+         hover:text-blue-600 hover:underline"
       >
         <img src="${props.logo}" 
           alt="${props.name}-logo"  
           style="width: ${props.styles.logo.width}; 
-          margin-top: ${props.styles.logo?.margin_top};" 
+          margin-top: ${props.styles.logo?.margin_top}; 
+          margin: ${props.styles.logo?.margin};" 
         />
         <p class="text-xl">${props.name}</p>
       </a>
