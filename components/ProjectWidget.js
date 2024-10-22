@@ -35,7 +35,6 @@ export const ProjectWidget = (props) => {
         <img src="${props.logo}" 
           alt="${props.name}-logo"  
           style="width: ${props.styles.logo.width}; 
-          margin-top: ${props.styles.logo?.margin_top}; 
           margin: ${props.styles.logo?.margin};" 
         />
         <p class="text-xl">${props.name}</p>
