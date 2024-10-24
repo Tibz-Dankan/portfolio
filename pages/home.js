@@ -1,6 +1,7 @@
 import { html, useEffect, useState, getRef } from "z-js-framework";
 import projectJson from "../data/projects.json";
 import { ProjectWidget } from "../components/ProjectWidget";
+import { AnimatedCircle } from "../components/AnimatedCircle";
 
 export default function Home() {
   const projects = projectJson.data;
@@ -87,10 +88,23 @@ export default function Home() {
         </div>
       </header>
       <section
-        class="w-full flex items-center justify-center h-[30vh] bg-[rgba(28,126,214,0.05)]
+        class="w-full flex items-center justify-center h-[90vh] bg-[rgba(28,126,214,0.05)]
          py-4 px-4 sm:px-8 lg:px-12 2xl:px-32"
       >
-        Animated diagrams
+        <div class="w-full flex items-center justify-center gap-32">
+          <div class="flex flex-col items-center justify-center gap-2">
+            <span>Idea</span>
+            ${AnimatedCircle()}
+          </div>
+          <div class="flex flex-col items-center justify-center gap-2">
+            <span>Design</span>
+            ${AnimatedCircle()}
+          </div>
+          <div class="flex flex-col items-center justify-center gap-2">
+            <span>Code</span>
+            ${AnimatedCircle()}
+          </div>
+        </div>
       </section>
 
       <section
