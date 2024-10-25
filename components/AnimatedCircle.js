@@ -1,33 +1,54 @@
-import { html, useState, reactive, useEffect } from "z-js-framework";
+import { html, useState, reactive, useEffect, getRef } from "z-js-framework";
 
 export const AnimatedCircle = (props) => {
-  const children = [
-    {
-      element: html`<span class="bg-yellow-500 w-4 h-4 rounded-[50%]"></span>`,
-    },
-    {
-      element: html`<span class="bg-blue-500 w-4 h-4 rounded-[50%]"></span>`,
-    },
-    {
-      element: html`<span class="bg-green-500 w-4 h-4 rounded-[50%]"></span>`,
-    },
-  ];
+  const elementNumList = [1, 2, 3];
+  const [elementNum, setElementNum] = useState(elementNumList[0]);
 
-  const [childElement, setChildElement] = useState(children[0].element);
+  const genElementRef = (num) => {
+    return `${num}_${Date.now()}`;
+  };
 
-  const nextChildHandler = () => {
-    const currentChildIndex = children.findIndex(
-      (child) => child.element === childElement.current()
+  const elementOneRef = genElementRef(1);
+  const elementTwoRef = genElementRef(2);
+  const elementThreeRef = genElementRef(3);
+
+  const nextElementNumHandler = () => {
+    const currentNumIndex = elementNumList.findIndex(
+      (num) => num === elementNum.current()
     );
 
-    console.log("currentChildIndex ", currentChildIndex);
-
-    if (currentChildIndex === children.length - 1) {
-      setChildElement(children[0].element);
+    if (currentNumIndex === elementNumList.length - 1) {
+      setElementNum(elementNumList[0]);
       return;
     }
-    const nextChildIndex = currentChildIndex + 1;
-    setChildElement(children[nextChildIndex].element);
+    const nextNumIndex = currentNumIndex + 1;
+    setElementNum(elementNumList[nextNumIndex]);
+  };
+
+  const getElementRef = (num) => {
+    if (num === 1) {
+      return elementOneRef;
+    } else if (num === 2) {
+      return elementTwoRef;
+    } else if (num === 3) {
+      return elementThreeRef;
+    } else {
+      return null;
+    }
+  };
+
+  const showCurrentChildElement = (num) => {
+    let elementRef;
+    elementRef = getRef(`${getElementRef(num)}`);
+    elementRef.style.display = "block";
+
+    const elementList = JSON.parse(JSON.stringify(elementNumList));
+    const hideElementList = elementList.filter((element) => element !== num);
+
+    hideElementList.forEach((element) => {
+      elementRef = getRef(`${getElementRef(element)}`);
+      elementRef.style.display = "none";
+    });
   };
 
   const UI = () => html`<div class="flex items-center justify-center">
@@ -35,36 +56,32 @@ export const AnimatedCircle = (props) => {
       class="w-[10vw] h-auto aspect-[1/1] border-[12px] border-blue-400 
        rounded-[50%] flex items-center justify-center"
     >
-      ${childElement}
+      <span
+        ref=${elementOneRef}
+        class="bg-yellow-500 w-4 h-4 rounded-[50%] hidden"
+      ></span>
+      <span
+        ref=${elementTwoRef}
+        class="bg-blue-500 w-4 h-4 rounded-[50%] hidden"
+      ></span>
+      <span
+        ref=${elementThreeRef}
+        class="bg-green-500 w-4 h-4 rounded-[50%] hidden"
+      ></span>
     </div>
   </div>`;
 
-  // useEffect(() => {
-  //   const currentChildElement = childElement.current();
+  useEffect(() => {
+    const currentElementNum = elementNum.current();
 
-  //   const showCurrentChildElement = () => {
-  //     images.forEach((image) => {
-  //       const dot = getRef(image);
-  //       if (image === currentChildElement) {
-  //         dot.style.backgroundColor = props.styles.primary_light_color;
-  //         dot.style.width = "10px";
-  //         dot.style.height = "10px";
-  //         return;
-  //       }
-  //       dot.style.backgroundColor = props.styles.primary_color;
-  //       dot.style.width = "8px";
-  //       dot.style.height = "8px";
-  //     });
-  //   };
-
-  //   showCurrentChildElement();
-  // }, [childElement]);
+    showCurrentChildElement(currentElementNum);
+  }, [elementNum]);
 
   useEffect(() => {
-    const autoShowNextChildHandler = () => {
-      setInterval(nextChildHandler, 2000);
+    const autoShowNextNum = () => {
+      setInterval(nextElementNumHandler, 2000);
     };
-    autoShowNextChildHandler();
+    autoShowNextNum();
   }, []);
 
   return reactive(UI);
