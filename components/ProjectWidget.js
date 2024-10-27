@@ -9,16 +9,12 @@ export const ProjectWidget = (props) => {
   const loadTechnologies = () => {
     const technologyRef = getRef("technologyRef");
 
-    const isLastElement = (list, index) => {
-      return list.length - 1 === index;
-    };
-
     technologies.forEach((technology, index) => {
       technologyRef.appendChild(
-        html`<span class="text-[12px] text-gray-400"
-            >${technology}${!isLastElement(technologies, index)
-              ? ","
-              : ""}</span
+        html`<span
+            class="text-[12px] font-semibold text-[#4dabf7] bg-[rgba(77,171,247,0.1)]
+             rounded-xl px-2 py-1"
+            >${technology}</span
           >,`
       );
     });
@@ -131,7 +127,7 @@ export const ProjectWidget = (props) => {
         </div>
         </div>
         </div>
-        <div class="w-full text-sm italics text-gray-400">
+        <div class="w-full text-sm italics text-gray-300">
           <p>${props.title}</p>
         </div>
       </div> 
