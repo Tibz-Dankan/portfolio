@@ -3,6 +3,8 @@ import projectJson from "../data/projects.json";
 import technologyJson from "../data/technologies.json";
 import { ProjectWidget } from "../components/ProjectWidget";
 import { AnimatedCircle } from "../components/AnimatedCircle";
+import { Modal } from "../components/Modal";
+import { ContactForm } from "../components/Contact";
 
 export default function Home() {
   const projects = projectJson.data;
@@ -74,11 +76,14 @@ export default function Home() {
             />
           </li>
           <li>
-            <img
-              src="/public/icons/gmail.svg"
-              alt="Gmail Icon"
-              class="size-6"
-            />
+            ${Modal({
+              openModalElement: html`<img
+                src="/public/icons/gmail.svg"
+                alt="Gmail Icon"
+                class="size-6 cursor-pointer"
+              />`,
+              contentElement: html`<div>${ContactForm()}</div>`,
+            })}
           </li>
         </ul>
       </nav>
@@ -104,15 +109,18 @@ export default function Home() {
               modern front-end tools such as React, Next.js, and TailwindCSS to
               build comprehensive and user-friendly solutions.
             </p>
-            <button
-              class="rounded-lg px-4 py-4  self-end space-x-2
-              border-[1px] border-gray-700"
-            >
-              <span> Message </span>
-              <span class="bg-gray-200 text-gray-800 px-2 py-1 rounded-lg">
-                Icon
-              </span>
-            </button>
+            ${Modal({
+              openModalElement: html`<button
+                class="rounded-lg px-4 py-4  self-end space-x-2
+                border-[1px] border-gray-700"
+              >
+                <span> Message </span>
+                <span class="bg-gray-200 text-gray-800 px-2 py-1 rounded-lg">
+                  Icon
+                </span>
+              </button>`,
+              contentElement: html`<div>${ContactForm()}</div>`,
+            })}
           </div>
           <img
             src="images/dankan.png"
