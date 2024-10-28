@@ -1,0 +1,102 @@
+{
+  "data": [
+    {
+      "name": "Appcrons",
+      "logo": "images/appcrons-logo.png",
+      "url": "https://appcrons.netlify.app",
+      "github_url": "https://github.com/tibz-dankan/appcrons",
+      "title": "Optimize uptime for your free backend instance on Render.",
+      "description": "Appcrons sends automated requests to prevent your free backend instance or server on Render from shutting down due to inactivity.",
+      "cover_image_url": "images/appcrons-cover.png",
+      "image_slide_urls": [
+        "images/appcrons/image-1.png",
+        "images/appcrons/image-2.png",
+        "images/appcrons/image-3.png",
+        "images/appcrons/image-4.png"
+      ],
+      "video_url": "video_url",
+      "technologies": [
+        "Golang",
+        "Typescript",
+        "TailwindCSS",
+        "Nextjs",
+        "Postgres",
+        "Redis"
+      ],
+      "styles": {
+        "primary_color": "#087f5b",
+        "primary_light_color": "#0ca678",
+        "logo": {
+          "width": "32px"
+        }
+      }
+    },
+    {
+      "name": "UR Invoices",
+      "logo": "images/ug-airlines-logo.png",
+      "url": "#",
+      "github_url": "#",
+      "title": "Invoice Management System for Uganda Airlines",
+      "description": "Invoice Management System for Uganda Airlines",
+      "cover_image_url": "images/ur-invoices-cover.png",
+      "image_slide_urls": [
+        "images/urinvoinces/image-1.png",
+        "images/urinvoinces/image-2.png",
+        "images/urinvoinces/image-3.png",
+        "images/urinvoinces/image-4.png"
+      ],
+      "video_url": "#",
+      "technologies": [
+        "React",
+        "Javascript",
+        "TailwindCSS",
+        "Django",
+        "Sqlite",
+        "Redux"
+      ],
+      "styles": {
+        "primary_color": "#7c5dfa",
+        "primary_light_color": "#7e88c3",
+        "logo": {
+          "width": "160px",
+          "height": "32px",
+          "margin": "-16px 0px"
+        }
+      }
+    },
+    {
+      "name": "Docease",
+      "logo": "images/docease-logo.png",
+      "url": "https://doc-ease.netlify.app",
+      "github_url": "https://github.com/Tibz-Dankan/docease-frontend",
+      "title": "A platform that makes it easier for patients and doctors to interact.",
+      "description": "A platform that makes it easier for patients and doctors to interact.",
+      "cover_image_url": "images/docease-cover.png",
+      "image_slide_urls": [
+        "images/docease/image-1.png",
+        "images/docease/image-2.png",
+        "images/docease/image-3.png",
+        "images/docease/image-4.png",
+        "images/docease/image-5.png"
+      ],
+      "video_url": "video_url",
+      "technologies": [
+        "Nodejs",
+        "Typescript",
+        "TailwindCSS",
+        "React",
+        "Postgres",
+        "Firebase Storage",
+        "FCM"
+      ],
+      "styles": {
+        "primary_color": "#1c7ed6",
+        "primary_light_color": "#a5d8ff",
+        "logo": {
+          "width": "44px",
+          "margin": "8px 0px 0px 0px"
+        }
+      }
+    }
+  ]
+}

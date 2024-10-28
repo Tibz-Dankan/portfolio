@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "name": "Golang",
+      "icon": "icons/technologies/go.svg"
+    },
+    {
+      "name": "Typescript",
+      "icon": "icons/technologies/typescript.svg"
+    },
+    {
+      "name": "Nodejs",
+      "icon": "icons/technologies/nodejs.svg"
+    },
+    {
+      "name": "React",
+      "icon": "icons/technologies/react.svg"
+    },
+    {
+      "name": "Postgres",
+      "icon": "icons/technologies/postgres.svg"
+    },
+    {
+      "name": "Docker",
+      "icon": "icons/technologies/go.svg"
+    },
+    {
+      "name": "Git",
+      "icon": "icons/technologies/git.svg"
+    },
+    {
+      "name": "Firebase",
+      "icon": "icons/technologies/firebase.svg"
+    },
+    {
+      "name": "Graphql",
+      "icon": "icons/technologies/firebase.svg"
+    },
+    {
+      "name": "Linux",
+      "icon": "icons/technologies/firebase.svg"
+    },
+    {
+      "name": "SQL",
+      "icon": "icons/technologies/sql.svg"
+    },
+    {
+      "name": "TailwindCSS",
+      "icon": "icons/technologies/tailwind.svg"
+    }
+  ]
+}
