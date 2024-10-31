@@ -2,7 +2,7 @@
   "data": [
     {
       "name": "Golang",
-      "icon": "icons/technologies/go.svg"
+      "icon": "icons/technologies/golang.svg"
     },
     {
       "name": "Typescript",
@@ -22,7 +22,7 @@
     },
     {
       "name": "Docker",
-      "icon": "icons/technologies/go.svg"
+      "icon": "icons/technologies/docker.svg"
     },
     {
       "name": "Git",
@@ -34,11 +34,11 @@
     },
     {
       "name": "Graphql",
-      "icon": "icons/technologies/firebase.svg"
+      "icon": "icons/technologies/graphql.svg"
     },
     {
       "name": "Linux",
-      "icon": "icons/technologies/firebase.svg"
+      "icon": "icons/technologies/linux.svg"
     },
     {
       "name": "SQL",
@@ -46,7 +46,7 @@
     },
     {
       "name": "TailwindCSS",
-      "icon": "icons/technologies/tailwind.svg"
+      "icon": "icons/technologies/tailwindcss.svg"
     }
   ]
 }

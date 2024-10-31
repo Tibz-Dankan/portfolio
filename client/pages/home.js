@@ -37,9 +37,16 @@ export default function Home() {
 
     technologies.forEach((technology) => {
       technologyRef.appendChild(
-        html`<div class="border-[1px] border-gray-700 rounded-lg p-2 space-x-2">
-            <span>Icon</span>
-            <span class="text-lg"> ${technology.name} </span>
+        html`<div
+            class="w-44s flex items-center border-[1px] border-gray-700 rounded-lg p-2 space-x-4"
+          >
+            <span>
+              <img
+                src="${technology.icon}"
+                alt="${technology.name} Icon"
+                class="size-7"
+            /></span>
+            <span class="text-base"> ${technology.name}</span>
           </div>
           ,`
       );
@@ -95,13 +102,6 @@ export default function Home() {
           class="w-3/5 h-1/2 flex flex-col sm:flex-row justify-center gap-4 
            border-[1px] border-gray-700 rounded-lg p-4"
         >
-          <!-- <p>Hi there</p>
-          <p class="text-4xl">
-            <span
-              >Bring that idea to life by designing, collaborating and coding
-              with Dankan
-            </span>
-          </p> -->
           <div class="flex flex-col justify-center">
             <p class="text-lg">
               I'm a full-stack engineer with a strong focus on the backend,
@@ -129,16 +129,11 @@ export default function Home() {
             shadow-md"
           />
         </div>
-        <!-- <div class="w-full flex items-center justify-center bg-green-400">
-          <img
-            src="images/dankan.png"
-            alt="profile"
-            class="w-4/5 h-4/5 lg:w-3/5 lg:h-3/5 rounded-[50%]"
-          />
-        </div> -->
       </header>
 
-      <section class="py-4 px-4 sm:px-8 lg:px-12 2xl:px-32 space-y-8">
+      <section
+        class="flex flex-col items-center py-4 px-4 sm:px-8 lg:px-12 2xl:px-32 space-y-8"
+      >
         <div>
           <p class="text-2xl font-semibold">Tools and Technologies</p>
         </div>
@@ -147,26 +142,6 @@ export default function Home() {
           ref="techRef"
         ></div>
       </section>
-
-      <!-- <section
-        class="w-full flex items-center justify-center h-[90vh] bg-[rgba(28,126,214,0.05)]
-         py-4 px-4 sm:px-8 lg:px-12 2xl:px-32"
-      >
-        <div class="w-full flex items-center justify-center gap-32">
-          <div class="flex flex-col items-center justify-center gap-2">
-            <span>Idea</span>
-            ${AnimatedCircle()}
-          </div>
-          <div class="flex flex-col items-center justify-center gap-2">
-            <span>Design</span>
-            ${AnimatedCircle()}
-          </div>
-          <div class="flex flex-col items-center justify-center gap-2">
-            <span>Code</span>
-            ${AnimatedCircle()}
-          </div>
-        </div>
-      </section> -->
 
       <section class="py-4 px-4 sm:px-8 lg:px-12 2xl:px-32 space-y-8">
         <div>
