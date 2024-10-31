@@ -36,7 +36,8 @@ class Email {
           },
         ],
       });
-      console.log("mail sent:", request);
+      console.log("mail sent");
+      console.log("response status", request.response.status);
     } catch (err) {
       console.log("Error sending mail:", err.statusCode);
     }
@@ -49,7 +50,7 @@ class Email {
         subject: "Contact Message",
         name: name,
         message: message,
-        email: email,
+        senderEmail: email,
       }
     );
     await this.sendHtml(html, "Contact  Message");
