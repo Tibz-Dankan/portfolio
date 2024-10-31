@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use(rateLimitController);
 
-app.use("/api/contact", contactRoutes);
+app.use("/api/v1/contact", contactRoutes);
 
 app.use(errorHandler);
 

@@ -45,7 +45,7 @@ export const Modal = (props) => {
           z-10"
         >
           <div
-            class="w-auto h-auto p-4 sm:p-8 relative shadow-[0px_10px_20px_rgba(0,0,0,0.25)]
+            class="w-auto h-auto p-4s sm: p-8 relative shadow-[0px_10px_20px_rgba(0,0,0,0.25)]
             z-50 bg-[#212529] rounded-lg"
           >
             <span onClick="${closeModalHandler}" class="absolute top-2 right-2">
