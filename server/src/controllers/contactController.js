@@ -14,13 +14,16 @@ const postContactMessage = asyncHandler(async (req, res, next) => {
     return next(new AppError("Please provide a valid email!", 400));
   }
 
-  await new Email(process.env.MJ_RECIPIENT_MAIL).sendContactUs(
-    name,
-    email,
-    message
-  );
+  // await new Email(process.env.MJ_RECIPIENT_MAIL).sendContactUs(
+  //   name,
+  //   email,
+  //   message
+  // );
 
-  res.status(200).json({ message: "Your message has been submitted!" });
+  setTimeout(() => {
+    console.log("Executed in the timer callback");
+    res.status(200).json({ message: "Your message has been submitted!" });
+  }, 5000);
 });
 
 module.exports = { postContactMessage };
