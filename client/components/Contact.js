@@ -1,5 +1,14 @@
-import { html, useState, reactive, useEffect, getRef } from "z-js-framework";
+import {
+  html,
+  useState,
+  reactive,
+  useEffect,
+  getRef,
+  useStore,
+} from "z-js-framework";
 import { postContactMessage } from "../API/contact";
+import { Alert } from "./Alert";
+import { alertStore } from "../store";
 
 export const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -7,6 +16,8 @@ export const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  // const [alert, setAlert] = useState({ type: "", message: "" });
+  const [alert, setAlert] = useStore(alertStore);
 
   const nameChangeHandler = (event) => setName(event.target.value);
   const emailChangeHandler = (event) => setEmail(event.target.value);
@@ -31,19 +42,31 @@ export const ContactForm = () => {
     try {
       setIsLoading(true);
       setIsSuccessful(false);
+      setAlert({ type: "", message: "" });
       const response = await postContactMessage({
         name: nameValue,
         email: emailValue,
         message: messageValue,
       });
       console.log("response:", response);
+      setAlert({ type: "success", message: response.message });
       setIsLoading(false);
       setIsSuccessful(true);
     } catch (error) {
       console.log("error:", error.message);
+      setAlert({ type: "error", message: error.message });
       setIsLoading(false);
     }
   };
+
+  // ${alert.current().message
+  //   ? html`<div class="w-full h-full flex flex-col gap-2">
+  //       ${Alert({
+  //         type: alert.current().type,
+  //         message: alert.current().message,
+  //       })}
+  //     </div>`
+  //   : ""}
 
   const UI = html`<div>
     <form
@@ -54,6 +77,18 @@ export const ContactForm = () => {
         <p class="text-gray-300 text-2xl font-semibold">
           Send Dankan a message
         </p>
+      </div>
+      <div class="w-full hidden" ref="alertSuccessRef">
+        ${Alert({
+          type: "success",
+          message: alert.current().message,
+        })}
+      </div>
+      <div class="w-full hidden" ref="alertErrorRef">
+        ${Alert({
+          type: "error",
+          message: alert.current().message,
+        })}
       </div>
       <div class="w-full h-full flex flex-col gap-2">
         <label for="username" class="text-sm font-medium text-gray-500"
@@ -110,8 +145,8 @@ export const ContactForm = () => {
           onClick="${postContactMessageHandler}"
           ref="contactBtnRef"
         >
-          <span ref="contactBtnLabelRef"> Submit </span>
-          <span ref="contactBtnLoaderRef" class="hidden"> Submitting... </span>
+          <span ref="contactBtnLabelRef"> Send </span>
+          <span ref="contactBtnLoaderRef" class="hidden"> Sending... </span>
         </button>
       </div>
     </form>
@@ -152,6 +187,42 @@ export const ContactForm = () => {
     };
     makeContactFieldsEmpty();
   }, [isSuccessful]);
+
+  useEffect(() => {
+    const showNotificationHandler = () => {
+      const showAlert = !!alert.current().message;
+      const alertSuccess = alert.current().type === "success";
+      const alertError = alert.current().type === "error";
+
+      if (alertSuccess && showAlert) {
+        const alertSuccessRef = getRef("alertSuccessRef");
+        const alertErrorRef = getRef("alertErrorRef");
+
+        alertSuccessRef.style.display = "block";
+        alertErrorRef.style.display = "none";
+        setTimeout(() => {
+          // const alertMessageRef = getRef("alertMessageRef");
+          // console.log("alertMessageRef:", alertMessageRef);
+          // alertMessageRef.innerHTML = alert.current().message;
+        }, 40);
+      }
+      if (alertError && showAlert) {
+        const alertSuccessRef = getRef("alertSuccessRef");
+        const alertErrorRef = getRef("alertErrorRef");
+
+        alertSuccessRef.style.display = "none";
+        alertErrorRef.style.display = "block";
+        setTimeout(() => {
+          // const alertMessageRef = getRef("alertMessageRef");
+          // console.log("alertMessageRef:", alertMessageRef);
+          // alertMessageRef.innerHTML = alert.current().message;
+        }, 40);
+      }
+      console.log("alert.current().message:", alert.current().message);
+    };
+
+    showNotificationHandler();
+  }, [alert]);
 
   return reactive(() => UI);
 };
