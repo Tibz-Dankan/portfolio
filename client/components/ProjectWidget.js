@@ -92,7 +92,7 @@ export const ProjectWidget = (props) => {
                 ${Modal({
                   openModalElement: html`<span>
                     <img
-                      src="/public/icons/expand-black.svg"
+                      src="icons/expand-black.svg"
                       alt="Expand Icon"
                       class="size-5 cursor-pointer"
                     />
@@ -112,7 +112,7 @@ export const ProjectWidget = (props) => {
                 ${Modal({
                   openModalElement: html`<span>
                     <img
-                      src="/public/icons/expand-white.svg"
+                      src="icons/expand-white.svg"
                       alt="Expand Icon"
                       class="size-5 cursor-pointer"
                     />
@@ -136,7 +136,7 @@ export const ProjectWidget = (props) => {
                   ${Modal({
                     openModalElement: html`<span>
                       <img
-                        src="/public/icons/video-black.svg"
+                        src="icons/video-black.svg"
                         alt="Video Icon"
                         class="size-6 cursor-pointer"
                       />
@@ -148,7 +148,7 @@ export const ProjectWidget = (props) => {
                   ${Modal({
                     openModalElement: html`<span>
                       <img
-                        src="/public/icons/video-white.svg"
+                        src="icons/video-white.svg"
                         alt="Video Icon"
                         class="size-6 cursor-pointer stroke-gray-100"
                       />
