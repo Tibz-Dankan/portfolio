@@ -94,7 +94,7 @@ export const ImageSlider = (props) => {
     <div class="w-full flex items-center justify-end gap-8">
       <span onClick="${prevImageHandler}" class="rotate-[90deg]">
         <img
-          src="/public/icons/chevron-down.svg"
+          src="icons/chevron-down.svg"
           alt="chevron-down Icon"
           class="size-7 cursor-pointer"
         />
@@ -105,7 +105,7 @@ export const ImageSlider = (props) => {
       ></div>
       <span onClick="${nextImageHandler}" class="rotate-[-90deg]">
         <img
-          src="/public/icons/chevron-down.svg"
+          src="icons/chevron-down.svg"
           alt="chevron-down Icon"
           class="size-7 cursor-pointer"
         />

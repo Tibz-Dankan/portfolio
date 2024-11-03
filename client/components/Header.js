@@ -11,25 +11,13 @@ export const Header = () => {
       <h1 class="font-bold text-2xl text-gray-100">Tibesigwa Dankan</h1>
       <ul class="flex items-center justify-end gap-4">
         <li>
-          <img
-            src="/public/icons/github.svg"
-            alt="Github Icon"
-            class="size-7"
-          />
+          <img src="icons/github.svg" alt="Github Icon" class="size-7" />
         </li>
         <li>
-          <img
-            src="/public/icons/linkedin.svg"
-            alt="LinkedIn Icon"
-            class="size-6"
-          />
+          <img src="icons/linkedin.svg" alt="LinkedIn Icon" class="size-6" />
         </li>
         <li>
-          <img
-            src="/public/icons/twitter.svg"
-            alt="Twitter Icon"
-            class="size-6"
-          />
+          <img src="icons/twitter.svg" alt="Twitter Icon" class="size-6" />
         </li>
         <li class="sm:ml-8">
           ${Modal({

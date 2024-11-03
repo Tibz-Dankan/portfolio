@@ -50,7 +50,7 @@ export const Modal = (props) => {
           >
             <span onClick="${closeModalHandler}" class="absolute top-2 right-2">
               <img
-                src="/public/icons/close.svg"
+                src="icons/close.svg"
                 alt="Close Icon"
                 class="size-7 cursor-pointer"
               />
