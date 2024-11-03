@@ -6,7 +6,7 @@ export const HeroBg = (props) => {
     <div class="relative h-screen">
       <canvas
         ref="animatedCanvasRef"
-        class="absolute inset-0s left-[-10vw] right-0 -top-60 w-[120vw]
+        class="absolute inset-0 left-[-10vw] right-0 -top-60 w-[120vw]
          h-screen z-[1] rotate-[-15deg]"
       ></canvas>
       <div class="absolute inset-0 w-full h-auto z-10">${props.content}</div>
@@ -19,7 +19,7 @@ export const HeroBg = (props) => {
 
     let width, height;
     const colors = ["#7e88c3", "#4dabf7", "#3bc9db", "#748ffc"];
-    const shapes = [];
+    const waves = [];
 
     function resizeCanvas() {
       width = canvas.width = window.innerWidth;
@@ -28,51 +28,57 @@ export const HeroBg = (props) => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    function createShapes() {
-      for (let i = 0; i < 15; i++) {
-        shapes.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          size: 200 + Math.random() * 100,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          speedX: (Math.random() - 0.5) * 0.2,
-          speedY: (Math.random() - 0.5) * 0.2,
+    function createWaves() {
+      colors.forEach((color, index) => {
+        waves.push({
+          color,
+          baseAmplitude: 50 + Math.random() * 100,
+          amplitudeOffset: Math.random() * 20,
+          wavelength: 0.005 + Math.random() * 0.01,
+          speed: 0.1 + Math.random() * 0.2,
+          phase: Math.random() * Math.PI * 2,
+          oscillationSpeed: 0.01 + Math.random() * 0.03,
+          time: 0,
         });
-      }
+      });
     }
 
-    function animateShapes() {
+    function animateWaves() {
       ctx.clearRect(0, 0, width, height);
-      shapes.forEach((shape) => {
+
+      waves.forEach((wave) => {
         ctx.beginPath();
-        ctx.arc(shape.x, shape.y, shape.size, 0, Math.PI * 2);
-        const gradient = ctx.createRadialGradient(
-          shape.x,
-          shape.y,
-          shape.size * 0.5,
-          shape.x,
-          shape.y,
-          shape.size
-        );
-        gradient.addColorStop(0, shape.color);
+        ctx.moveTo(0, height / 2);
+
+        const dynamicAmplitude =
+          wave.baseAmplitude + Math.sin(wave.time) * wave.amplitudeOffset;
+
+        for (let x = 0; x <= width; x += 10) {
+          const y =
+            Math.sin(x * wave.wavelength + wave.phase) * dynamicAmplitude +
+            height / 2;
+          ctx.lineTo(x, y);
+        }
+
+        ctx.lineTo(width, height);
+        ctx.lineTo(0, height);
+        ctx.closePath();
+
+        const gradient = ctx.createLinearGradient(0, 0, width, height);
+        gradient.addColorStop(0.85, wave.color);
         gradient.addColorStop(1, "transparent");
         ctx.fillStyle = gradient;
         ctx.fill();
 
-        shape.x += shape.speedX;
-        shape.y += shape.speedY;
-
-        if (shape.x < -shape.size) shape.x = width + shape.size;
-        if (shape.x > width + shape.size) shape.x = -shape.size;
-        if (shape.y < -shape.size) shape.y = height + shape.size;
-        if (shape.y > height + shape.size) shape.y = -shape.size;
+        wave.phase += wave.speed * 0.02;
+        wave.time += wave.oscillationSpeed;
       });
 
-      requestAnimationFrame(animateShapes);
+      requestAnimationFrame(animateWaves);
     }
 
-    createShapes();
-    animateShapes();
+    createWaves();
+    animateWaves();
   }, []);
 
   return reactive(() => UI);
