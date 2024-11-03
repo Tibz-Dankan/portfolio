@@ -20,21 +20,54 @@ export const ProjectWidget = (props) => {
     });
   };
 
-  const UI = html`<div class="p-4 shadow-md rounded-md space-y-4 border-[1px] border-gray-700">
-    <div class="flex items-center justify-start gap-2">
-      <a
-        href="${props.url}"
-        target="_blank"
-        class="flex items-center justify-start gap-2 outline-none
-         hover:text-blue-600 hover:underline"
-      >
-        <img src="${props.logo}" 
-          alt="${props.name}-logo"  
-          style="width: ${props.styles.logo.width}; 
-          margin: ${props.styles.logo?.margin};" 
-        />
-        <p class="text-xl">${props.name}</p>
-      </a>
+  const UI = html`<div class="p-4 shadow-md rounded-md space-y-4
+    border-[1px] border-gray-700">
+    <div class="flex items-center justify-between gap-2">
+      <div class="flex items-center justify-center">
+        <a
+          href="${props.url}"
+          target="_blank"
+          class="flex items-center justify-start gap-2 outline-none
+           hover:text-blue-600 hover:underline"
+        >
+          <img src="${props.logo}" 
+            alt="${props.name}-logo"  
+            style="width: ${props.styles.logo.width}; 
+            margin: ${props.styles.logo?.margin};" 
+          />
+          <p class="text-xl">${props.name}</p>
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-2">
+        <a
+          href="${props.links.github.url}"
+          target="_blank"
+          class="flex items-center justify-start gap-2 outline-none
+          bg-[rgba(248,249,250,0.2)] rounded-[50%] p-2"
+          style="pointer-events: ${!props.links.github.show && "none"}; 
+           opacity: ${!props.links.github.show && "0.5"};
+           cursor: ${!props.links.github.show && "now-allowed"};" 
+        >
+          <img src="icons/github.svg" 
+            alt="Github Icon"  
+            class="size-5"
+          />
+        </a>
+        <a
+          href="${props.links.site.url}"
+          target="_blank"
+          class="flex items-center justify-start gap-2 outline-none
+          bg-[rgba(248,249,250,0.15)] rounded-[50%] p-2"
+          style="pointer-events: ${!props.links.site.show && "none"}; 
+           opacity: ${!props.links.site.show && "0.5"};
+           cursor: ${!props.links.site.show && "not-allowed"};" 
+        >
+          <img src="icons/link.svg" 
+            alt="Link Icon"  
+            class="size-5"
+          />
+        </a>
+      </div>
     </div>
     <div class="flex flex-col items-centers justify-center gap-4">
       <div class="relative">

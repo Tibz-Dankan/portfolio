@@ -15,6 +15,14 @@
         "images/appcrons/image-4.png"
       ],
       "video_url": "video_url",
+      "links": {
+        "site": { "url": "https://appcrons.netlify.app", "show": true },
+        "github": {
+          "url": "https://github.com/tibz-dankan/appcrons",
+          "show": true
+        },
+        "video": { "url": "video_url", "show": true }
+      },
       "technologies": [
         "Golang",
         "Typescript",
@@ -46,6 +54,11 @@
         "images/urinvoinces/image-4.png"
       ],
       "video_url": "#",
+      "links": {
+        "site": { "url": "#", "show": false },
+        "github": { "url": "#", "show": false },
+        "video": { "url": "video_url", "show": false }
+      },
       "technologies": [
         "React",
         "Javascript",
@@ -80,6 +93,14 @@
         "images/docease/image-5.png"
       ],
       "video_url": "video_url",
+      "links": {
+        "site": { "url": "https://doc-ease.netlify.app", "show": true },
+        "github": {
+          "url": "https://github.com/Tibz-Dankan/docease-frontend",
+          "show": true
+        },
+        "video": { "url": "video_url", "show": true }
+      },
       "technologies": [
         "Nodejs",
         "Typescript",
