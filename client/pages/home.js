@@ -24,6 +24,7 @@ export default function Home() {
           cover_image_url: project.cover_image_url,
           image_slide_urls: project.image_slide_urls,
           video_url: project.video_url,
+          links: project.links,
           technologies: project.technologies,
           styles: project.styles,
         })
