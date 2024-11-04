@@ -69,9 +69,14 @@ export default function Home() {
         ></div>
       </section>
 
-      <section class="py-4 px-4 sm:px-8 lg:px-12 2xl:px-32 space-y-8">
+      <section
+        class="py-4 px-4 sm:px-8 lg:px-12 2xl:px-32 space-y-8
+        transition-all"
+        ref="projectSectionRef"
+        style="background: linear-gradient(to bottom, rgba(116,143,252,0.015),rgba(116,143,252,0.15),rgba(116,143,252,0.015));"
+      >
         <div>
-          <p class="text-2xl font-semibold">Projects</p>
+          <p class="text-2xl font-semibold text-center">Projects</p>
         </div>
         <div
           class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4"

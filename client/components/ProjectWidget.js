@@ -1,4 +1,4 @@
-import { html, useEffect, getRef } from "z-js-framework";
+import { html, useEffect, getRef, reactive } from "z-js-framework";
 import { Modal } from "./Modal";
 import { Video } from "./Video";
 import { ImageSlider } from "./ImageSlider";
@@ -20,8 +20,28 @@ export const ProjectWidget = (props) => {
     });
   };
 
+  const genProjectRef = () => {
+    return `projectRef_${Date.now()}`;
+  };
+  const projectRef = genProjectRef();
+
+  const changeToProjectBgColor = () => {
+    const projectSection = getRef("projectSectionRef");
+    projectSection.style.background = props.styles.background;
+  };
+
+  const changeToDefaultBgColor = () => {
+    const projectSection = getRef("projectSectionRef");
+    const defaultBgColor =
+      "linear-gradient(to bottom, rgba(116,143,252,0.015),rgba(116,143,252,0.15),rgba(116,143,252,0.015))";
+
+    projectSection.style.background = defaultBgColor;
+  };
+
   const UI = html`<div class="p-4 shadow-md rounded-md space-y-4
-    border-[1px] border-gray-700">
+    border-[1px] border-gray-700" ref="${projectRef}"
+    onmouseenter="${changeToProjectBgColor}" 
+    onmouseleave="${changeToDefaultBgColor}">
     <div class="flex items-center justify-between gap-2">
       <div class="flex items-center justify-center">
         <a
