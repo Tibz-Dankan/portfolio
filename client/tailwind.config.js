@@ -6,7 +6,12 @@ export default {
     "./components/**/*.{js, jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        // "auto-fit": "repeat(auto-fit, minmax(100px, 1fr))",
+        "auto-fit": "repeat(auto-fit, minmax(min-content, 1fr))",
+      },
+    },
   },
   plugins: [],
 };
