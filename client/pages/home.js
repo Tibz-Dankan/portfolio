@@ -54,11 +54,13 @@ export default function Home() {
   };
 
   const UI = html`
-    <main class="w-full flex-col space-y-16 relative overflow-x-hidden">
+    <main class="w-full flex-col space-y-16s relative overflow-x-hidden">
       ${html`<div class="w-full h-auto">${HeroBg({ content: Header() })}</div>`}
       <section
-        class="flex flex-col items-center py-4 px-4 sm:px-8 
+        class="flex flex-col items-center py-12 pb-14 px-4 sm:px-8 
         lg:px-12 2xl:px-32 space-y-8"
+        style="background: linear-gradient(to bottom, rgba(116,143,252,0.005), 
+        rgba(116,143,252,0.05),rgba(116,143,252,0.10),rgba(116,143,252,0.015)"
       >
         <div>
           <p class="text-2xl font-semibold">Tools and Technologies</p>
@@ -70,10 +72,11 @@ export default function Home() {
       </section>
 
       <section
-        class="py-4 px-4 sm:px-8 lg:px-12 2xl:px-32 space-y-8
+        class="py-12 pb-14 px-4 sm:px-8 lg:px-12 2xl:px-32 space-y-8
         transition-all"
         ref="projectSectionRef"
-        style="background: linear-gradient(to bottom, rgba(116,143,252,0.015),rgba(116,143,252,0.15),rgba(116,143,252,0.015));"
+        style="background: linear-gradient(to bottom, rgba(116,143,252,0.015),
+        rgba(116,143,252,0.15),rgba(116,143,252,0.015));"
       >
         <div>
           <p class="text-2xl font-semibold text-center">Projects</p>
