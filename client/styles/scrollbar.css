@@ -1,0 +1,38 @@
+/* WEBKIT BROWSERS */
+.scroll-bar::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 4px;
+}
+.scroll-bar::-webkit-scrollbar-thumb {
+  background: #4dabf7;
+  border-radius: 0.4rem;
+}
+.scroll-bar::-webkit-scrollbar-track {
+  background: rgba(77, 171, 247, 0.1);
+}
+
+/* FIREFOX */
+.scroll-bar::-moz-scrollbar {
+  width: 0.4rem;
+  height: 4px;
+}
+.scroll-bar::-moz-scrollbar-thumb {
+  background: #4dabf7;
+  border-radius: 0.4rem;
+}
+.scroll-bar::-moz-scrollbar-track {
+  background: rgba(77, 171, 247, 0.1);
+}
+
+/* INTERNET EXPLORER */
+.scroll-bar::-ms-scrollbar {
+  width: 0.4rem;
+  height: 4px;
+}
+.scroll-bar::-ms-thumb {
+  background: #4dabf7;
+  border-radius: 0.4rem;
+}
+.scroll-bar::-ms-track {
+  background: rgba(77, 171, 247, 0.1);
+}
