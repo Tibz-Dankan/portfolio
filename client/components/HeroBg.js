@@ -6,7 +6,8 @@ export const HeroBg = (props) => {
     <div class="relative h-screen">
       <canvas
         ref="animatedCanvasRef"
-        class="absolute inset-0 left-[-10vw] right-0 -top-60 w-[120vw]
+        class="absolute inset-0 left-[-30vw] sm:left-[-20vw] lg:left-[-10vw]
+         right-0 -top-60 w-[130vw] sm:w-[120vw]
          h-screen z-[1] rotate-[-15deg]"
       ></canvas>
       <div class="absolute inset-0 w-full h-auto z-10">${props.content}</div>
