@@ -87,7 +87,14 @@ export default function Home() {
         ></div>
       </section>
 
-      <footer class="w-full flex items-center justify-center">Footer</footer>
+      <footer
+        class="w-full flex items-center justify-center
+        text-gray-400 py-8 px-4 sm:px-8 lg:px-12 2xl:px-32"
+        style="background: linear-gradient(to bottom, rgba(116,143,252,0.005), 
+        rgba(116,143,252,0.05),rgba(116,143,252,0.10),rgba(116,143,252,0.015)"
+      >
+        Pushing boundaries of what is possible 💪
+      </footer>
     </main>
   `;
 
