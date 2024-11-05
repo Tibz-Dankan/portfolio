@@ -38,7 +38,7 @@ export default function Home() {
     technologies.forEach((technology) => {
       technologyRef.appendChild(
         html`<div
-            class="w-44s flex items-center border-[1px] border-gray-700 rounded-lg p-2 space-x-4"
+            class="flex items-center border-[1px] border-[rgba(73,80,87,0.6)] rounded-lg p-2 space-x-4"
           >
             <span>
               <img

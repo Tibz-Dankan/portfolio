@@ -39,8 +39,14 @@ export const ProjectWidget = (props) => {
     projectSection.style.background = defaultBgColor;
   };
 
+  const showBlackIcons = (projectName) => {
+    if ("Docease" === projectName) return true;
+    if ("AAPG MUK CHAPTER" === projectName) return true;
+    return false;
+  };
+
   const UI = html`<div class="p-4 shadow-md rounded-md space-y-4
-    border-[1px] border-gray-700" ref="${projectRef}"
+    border-[1px] border-[rgba(73,80,87,0.6)]" ref="${projectRef}"
     onmouseenter="${changeToProjectBgColor}" 
     onmouseleave="${changeToDefaultBgColor}">
     <div class="flex items-center justify-between gap-2">
@@ -109,7 +115,7 @@ export const ProjectWidget = (props) => {
          rgba(28, 126, 214, 0.4), rgba(28, 126, 214, 0.6), rgba(28, 126, 214, 0.8));"
         >
         ${
-          props.name === "Docease"
+          showBlackIcons(props.name)
             ? html`<div>
                 ${Modal({
                   openModalElement: html`<span>
@@ -153,7 +159,7 @@ export const ProjectWidget = (props) => {
         }
         <div>
           ${
-            props.name === "Docease"
+            showBlackIcons(props.name)
               ? html`<div>
                   ${Modal({
                     openModalElement: html`<span>
