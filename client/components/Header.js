@@ -13,13 +13,23 @@ export const Header = () => {
       </h1>
       <ul class="flex items-center justify-end gap-2 sm:gap-4">
         <li>
-          <img src="icons/github.svg" alt="Github Icon" class="size-7" />
+          <a href="https://github.com/Tibz-Dankan" target="_blank" class="">
+            <img src="icons/github.svg" alt="Github Icon" class="size-7" />
+          </a>
         </li>
         <li>
-          <img src="icons/linkedin.svg" alt="LinkedIn Icon" class="size-6" />
+          <a
+            href="https://www.linkedin.com/in/tibesigwadankan"
+            target="_blank"
+            class=""
+          >
+            <img src="icons/linkedin.svg" alt="LinkedIn Icon" class="size-6" />
+          </a>
         </li>
         <li>
-          <img src="icons/twitter.svg" alt="Twitter Icon" class="size-6" />
+          <a href="https://twitter.com/TibzDankan" target="_blank" class="">
+            <img src="icons/twitter.svg" alt="Twitter Icon" class="size-6" />
+          </a>
         </li>
         <li class="sm:ml-8 hidden sm:block">
           ${Modal({
