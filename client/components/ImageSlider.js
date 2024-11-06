@@ -62,7 +62,7 @@ export const ImageSlider = (props) => {
   };
 
   const UI = () => html`<div
-    class="w-[70vw] sm:w-[608px] min-h-[54vh] flex flex-col items-center
+    class="w-[70vw] sm:w-[608px] h-auto sm:min-h-[54vh] flex flex-col items-center
      text-gray-100 bg-indigo-500s gap-4"
   >
     <div class="w-full flex items-center justify-start gap-2">

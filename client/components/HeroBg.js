@@ -3,14 +3,14 @@ import "../styles/custom.css";
 
 export const HeroBg = (props) => {
   const UI = html`
-    <div class="relative h-screen">
+    <div class="relative h-[80vh] sm:h-screen">
       <canvas
         ref="animatedCanvasRef"
         class="absolute inset-0 left-[-30vw] sm:left-[-20vw] lg:left-[-10vw]
-         right-0 -top-60 w-[130vw] sm:w-[120vw]
-         h-screen z-[1] rotate-[-15deg]"
+         right-0 -top-60 w-[140vw] sm:w-[120vw]
+         h-screen z-[1] rotate-[-10deg] sm:rotate-[-15deg]"
       ></canvas>
-      <div class="absolute inset-0 w-full h-auto z-10">${props.content}</div>
+      <div class="absolute inset-0 w-full h-full z-10">${props.content}</div>
     </div>
   `;
 
