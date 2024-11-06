@@ -1,6 +1,8 @@
 name: Deploy Z-js Client to Netlify
 on:
   push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
