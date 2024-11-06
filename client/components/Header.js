@@ -3,7 +3,7 @@ import { Modal } from "./Modal";
 import { ContactForm } from "./Contact";
 
 export const Header = () => {
-  const UI = html`<header class="w-full flex-col space-y-16">
+  const UI = html`<header class="w-full h-full flex-col space-y-16">
     <nav
       class="flex items-center bg-[rgba(0,0,0,0.0)] justify-between
         gap-4 py-4 px-4 sm:px-8 lg:px-12 2xl:px-32"
@@ -53,10 +53,10 @@ export const Header = () => {
     </nav>
     <div
       class="w-full flex items-center bg-[rgba(0,0,0,0.0)] justify-center
-         gap-32 py-4 px-4 sm:px-8 lg:px-12 2xl:px-32 h-[80vh] z-10"
+         gap-32 py-4 px-4 sm:px-8 lg:px-12 2xl:px-32 h-[60%] sm:h-[80%] z-10"
     >
       <div
-        class="w-fulls sm:w-autos h-1/3 sm:h-1/2 flex justify-center gap-4 
+        class="w-full sm:w-auto h-auto sm:h-1/2 flex justify-center gap-4 
         bg-[rgba(248,249,250,0.25)] rounded-lg p-4"
       >
         <div class="flex flex-col justify-center gap-3">
@@ -93,7 +93,7 @@ export const Header = () => {
         <img
           src="images/dankan.png"
           alt="profile"
-          class="w-auto h-full aspect-[1/1] rounded-[50%]
+          class="w-1/3 sm:w-auto h-full aspect-[1/1] rounded-[50%]
             shadow-md"
         />
       </div>
