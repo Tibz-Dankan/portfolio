@@ -1,14 +1,8 @@
-import { html, useStore, reactive } from "z-js-framework";
-import { alertStore } from "../store";
+import { html, reactive } from "z-js-framework";
 
 export const Alert = (props) => {
   const type = props.type;
-  const [alert, _] = useStore(alertStore);
-  // const message = props.message;
-  const message = alert.current().message;
-
-  console.log("alert:", alert);
-  console.log("message:", message);
+  const message = props.message;
 
   let bgColor;
   let icon;
@@ -29,8 +23,6 @@ export const Alert = (props) => {
       class="size-5"
     />`;
   }
-
-  // <span class="text-gray-50" ref="alertMessageRef">${message}</span>
 
   const UI = html`<div
     class="${bgColor} w-full rounded-lg p-4 flex items-start justify-start gap-2"
