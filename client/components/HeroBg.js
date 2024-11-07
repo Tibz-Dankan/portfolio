@@ -19,12 +19,13 @@ export const HeroBg = (props) => {
     const ctx = canvas.getContext("2d");
 
     let width, height;
-    const colors = [
-      "rgba(126,136,195,0.8)",
-      "rgba(77,171,247,0.8)",
-      "rgba(59,201,219,0.8)",
-      "rgba(116,143,252,0.8)",
-    ];
+    const colors = ["#7e88c3", "#4dabf7", "#3bc9db", "#748ffc"];
+    // const colors = [
+    //   "rgba(126,136,195,0.8)",
+    //   "rgba(77,171,247,0.8)",
+    //   "rgba(59,201,219,0.8)",
+    //   "rgba(116,143,252,0.8)",
+    // ];
     const waves = [];
 
     function resizeCanvas() {
