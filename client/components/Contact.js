@@ -1,14 +1,5 @@
-import {
-  html,
-  useState,
-  reactive,
-  useEffect,
-  getRef,
-  useStore,
-} from "z-js-framework";
+import { html, useState, reactive, useEffect, getRef } from "z-js-framework";
 import { postContactMessage } from "../API/contact";
-import { Alert } from "./Alert";
-import { alertStore } from "../store";
 
 export const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,8 +7,7 @@ export const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  // const [alert, setAlert] = useState({ type: "", message: "" });
-  const [alert, setAlert] = useStore(alertStore);
+  const [alert, setAlert] = useState({ type: "", message: "" });
 
   const nameChangeHandler = (event) => setName(event.target.value);
   const emailChangeHandler = (event) => setEmail(event.target.value);
@@ -29,13 +19,11 @@ export const ContactForm = () => {
     const messageValue = message.current();
 
     if (!nameValue || !emailValue || !messageValue) {
-      console.log("Missing name or email or message");
-      // TO trigger an alert error
+      setAlert({ type: "error", message: "Missing name or email or message" });
       return;
     }
     if (!emailValue.includes("@")) {
-      console.log("Invalid email");
-      // TO trigger an alert error
+      setAlert({ type: "error", message: "Invalid email" });
       return;
     }
 
@@ -59,15 +47,6 @@ export const ContactForm = () => {
     }
   };
 
-  // ${alert.current().message
-  //   ? html`<div class="w-full h-full flex flex-col gap-2">
-  //       ${Alert({
-  //         type: alert.current().type,
-  //         message: alert.current().message,
-  //       })}
-  //     </div>`
-  //   : ""}
-
   const UI = html`<div>
     <form
       action=""
@@ -79,16 +58,36 @@ export const ContactForm = () => {
         </p>
       </div>
       <div class="w-full hidden" ref="alertSuccessRef">
-        ${Alert({
-          type: "success",
-          message: alert.current().message,
-        })}
+        <div
+          class="bg-[#55C57A] w-full rounded-lg p-4 flex items-start justify-start gap-2"
+        >
+          <span>
+            <img
+              src="icons/alert/success.svg"
+              alt="success Icon"
+              class="size-5"
+            />
+          </span>
+          <span
+            class="text-gray-50"
+            id="alertMessage"
+            ref="alertSuccessMessageRef"
+          ></span>
+        </div>
       </div>
       <div class="w-full hidden" ref="alertErrorRef">
-        ${Alert({
-          type: "error",
-          message: alert.current().message,
-        })}
+        <div
+          class="bg-[#D9534F] w-full rounded-lg p-4 flex items-start justify-start gap-2"
+        >
+          <span
+            ><img src="icons/alert/error.svg" alt="Error Icon" class="size-5"
+          /></span>
+          <span
+            class="text-gray-50"
+            id="alertMessage"
+            ref="alertErrorMessageRef"
+          ></span>
+        </div>
       </div>
       <div class="w-full h-full flex flex-col gap-2">
         <label for="username" class="text-sm font-medium text-gray-500"
@@ -197,28 +196,21 @@ export const ContactForm = () => {
       if (alertSuccess && showAlert) {
         const alertSuccessRef = getRef("alertSuccessRef");
         const alertErrorRef = getRef("alertErrorRef");
+        const alertSuccessMessageRef = getRef("alertSuccessMessageRef");
 
         alertSuccessRef.style.display = "block";
         alertErrorRef.style.display = "none";
-        setTimeout(() => {
-          // const alertMessageRef = getRef("alertMessageRef");
-          // console.log("alertMessageRef:", alertMessageRef);
-          // alertMessageRef.innerHTML = alert.current().message;
-        }, 40);
+        alertSuccessMessageRef.innerHTML = alert.current().message;
       }
       if (alertError && showAlert) {
         const alertSuccessRef = getRef("alertSuccessRef");
         const alertErrorRef = getRef("alertErrorRef");
+        const alertErrorMessageRef = getRef("alertErrorMessageRef");
 
         alertSuccessRef.style.display = "none";
         alertErrorRef.style.display = "block";
-        setTimeout(() => {
-          // const alertMessageRef = getRef("alertMessageRef");
-          // console.log("alertMessageRef:", alertMessageRef);
-          // alertMessageRef.innerHTML = alert.current().message;
-        }, 40);
+        alertErrorMessageRef.innerHTML = alert.current().message;
       }
-      console.log("alert.current().message:", alert.current().message);
     };
 
     showNotificationHandler();

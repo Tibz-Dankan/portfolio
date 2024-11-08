@@ -169,7 +169,9 @@ export const ProjectWidget = (props) => {
                         class="size-6 cursor-pointer"
                       />
                     </span>`,
-                    contentElement: html`<div>${Video()}</div>`,
+                    contentElement: html`<div>
+                      ${Video({ name: props.name })}
+                    </div>`,
                   })}
                 </div>`
               : html`<div>
@@ -181,7 +183,9 @@ export const ProjectWidget = (props) => {
                         class="size-6 cursor-pointer stroke-gray-100"
                       />
                     </span>`,
-                    contentElement: html`<div>${Video()}</div>`,
+                    contentElement: html`<div>
+                      ${Video({ name: props.name })}
+                    </div>`,
                   })}
                 </div>`
           }
